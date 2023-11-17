@@ -1,10 +1,15 @@
 package ru.netology.javaqa;
 
 public class Radio {
-    public int currentFrequency;
+    private int currentFrequency;
+    private int currentVolume;
 
     public int getCurrentFrequency() {
         return currentFrequency;
+    }
+
+    public int getCurrentVolume() {
+        return currentVolume;
     }
 
     public void setCurrentFrequency(int newCurrentFrequency) {
@@ -29,26 +34,14 @@ public class Radio {
     public void prev() {
         if (currentFrequency > 0) {
             setCurrentFrequency(currentFrequency = currentFrequency - 1);
-            ;
         }
         if (currentFrequency <= 0) {
             currentFrequency = 9;
         }
     }
 
-    public int currentVolume;
-
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
     public void setCurrentVolume(int newCurrentVolume) {
-        if (newCurrentVolume > 100) {
-            newCurrentVolume = 100;
-        }
-        if (newCurrentVolume < 0) {
-            newCurrentVolume = 0;
-        }
+
         currentVolume = newCurrentVolume;
     }
 
@@ -59,12 +52,10 @@ public class Radio {
     }
 
     public void reduceVolume() {
-        if (currentVolume <= 100) {
-            setCurrentVolume(currentVolume = currentVolume - 1);
+        if (currentVolume > 0) {
+            currentVolume = currentVolume - 1;
         }
-        if (currentVolume <= 0) {
-            setCurrentVolume(currentVolume = currentVolume - 1);
-        }
+
 
     }
 
