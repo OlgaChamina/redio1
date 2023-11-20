@@ -25,19 +25,16 @@ public class Radio {
     public void next() {
         if (currentFrequency < 9) {
             currentFrequency = currentFrequency + 1;
-        }
-        if (currentFrequency >= 9) {
+        } else
             currentFrequency = 0;
-        }
+
     }
 
     public void prev() {
         if (currentFrequency > 0) {
-            setCurrentFrequency(currentFrequency = currentFrequency - 1);
-        }
-        if (currentFrequency <= 0) {
-            currentFrequency = 9;
-        }
+            currentFrequency = currentFrequency - 1;
+        } else currentFrequency = 9;
+
     }
 
     public void setCurrentVolume(int newCurrentVolume) {

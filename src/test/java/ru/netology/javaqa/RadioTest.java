@@ -88,6 +88,14 @@ public class RadioTest {
         int actual = radio.getCurrentFrequency();
         Assertions.assertEquals(expected, actual);
     }
+    @Test
+    void shouldIncreaseFrequencyOnOnebyPenultimate() {
+        radio.setCurrentFrequency(8);
+        radio.next();
+        int expected = 9;
+        int actual = radio.getCurrentFrequency();
+        Assertions.assertEquals(expected, actual);
+    }
 
     @Test
     void shouldReduceFrequencyOnOnebyMiddle() {
@@ -115,6 +123,7 @@ public class RadioTest {
         int actual = radio.getCurrentFrequency();
         Assertions.assertEquals(expected, actual);
     }
+
 
     @Test
     public void shouldSetVolume() {
