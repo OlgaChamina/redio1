@@ -88,6 +88,7 @@ public class RadioTest {
         int actual = radio.getCurrentFrequency();
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     void shouldIncreaseFrequencyOnOnebyPenultimate() {
         radio.setCurrentFrequency(8);
