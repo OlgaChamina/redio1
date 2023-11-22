@@ -1,5 +1,12 @@
 package ru.netology.javaqa;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class Radio {
     private int minFrequency = 0;
     private int maxFrequency = 9;
@@ -8,22 +15,10 @@ public class Radio {
     private int maxVolume = 100;
     private int currentVolume;
 
-    public Radio() {
-
-    }
 
     public Radio(int Range) {
         this.maxFrequency = minFrequency + Range - 1;
     }
-
-    public int getCurrentFrequency() {
-        return currentFrequency;
-    }
-
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
 
     public void setCurrentFrequency(int newCurrentFrequency) {
         if (newCurrentFrequency > maxFrequency) {

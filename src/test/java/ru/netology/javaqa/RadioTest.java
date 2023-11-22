@@ -6,10 +6,6 @@ import org.junit.jupiter.api.Test;
 public class RadioTest {
     Radio radio = new Radio(20);
 
-    // @Test
-    //public void sholdSetQuantityFrequency(){
-
-    // }
 
     @Test
     public void shouldSetFrequency() {
