@@ -1,8 +1,20 @@
 package ru.netology.javaqa;
 
 public class Radio {
+    private int minFrequency = 0;
+    private int maxFrequency = 9;
     private int currentFrequency;
+    private int minVolume = 0;
+    private int maxVolume = 100;
     private int currentVolume;
+
+    public Radio() {
+
+    }
+
+    public Radio(int Range) {
+        this.maxFrequency = minFrequency + Range - 1;
+    }
 
     public int getCurrentFrequency() {
         return currentFrequency;
@@ -12,26 +24,32 @@ public class Radio {
         return currentVolume;
     }
 
+
     public void setCurrentFrequency(int newCurrentFrequency) {
-        if (newCurrentFrequency > 9) {
+        if (newCurrentFrequency > maxFrequency) {
             return;
         }
-        if (newCurrentFrequency < 0) {        //по логике вещей, отрицательной частоты нет, и кнопки -1 быть не может, но на всякий случай
+        if (newCurrentFrequency < minFrequency) {        //по логике вещей, отрицательной частоты нет, и кнопки -1 быть не может, но на всякий случай
             return;
         }
         currentFrequency = newCurrentFrequency;
     }
 
     public void next() {
-        if (currentFrequency < 9) {
+        if (currentFrequency < maxFrequency) {
             currentFrequency = currentFrequency + 1;
-        } else currentFrequency = 0;
+        } else {
+            currentFrequency = minFrequency;
+        }
+
     }
 
     public void prev() {
-        if (currentFrequency > 0) {
+        if (currentFrequency > minFrequency) {
             currentFrequency = currentFrequency - 1;
-        } else currentFrequency = 9;
+        } else {
+            currentFrequency = maxFrequency;
+        }
 
     }
 
@@ -41,13 +59,13 @@ public class Radio {
     }
 
     public void increaseVolume() {
-        if (currentVolume < 100) {
+        if (currentVolume < maxVolume) {
             currentVolume = currentVolume + 1;
         }
     }
 
     public void reduceVolume() {
-        if (currentVolume > 0) {
+        if (currentVolume > minVolume) {
             currentVolume = currentVolume - 1;
         }
     }

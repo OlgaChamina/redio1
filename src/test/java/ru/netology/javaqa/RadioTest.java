@@ -4,7 +4,12 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class RadioTest {
-    Radio radio = new Radio();
+    Radio radio = new Radio(20);
+
+    // @Test
+    //public void sholdSetQuantityFrequency(){
+
+    // }
 
     @Test
     public void shouldSetFrequency() {
@@ -24,7 +29,7 @@ public class RadioTest {
 
     @Test
     void shouldSetFrequencyIfMoreMax() {
-        radio.setCurrentFrequency(10);
+        radio.setCurrentFrequency(20);
         int expected = 0;
         int actual = radio.getCurrentFrequency();
         Assertions.assertEquals(expected, actual);
@@ -32,8 +37,8 @@ public class RadioTest {
 
     @Test
     void shouldSetFrequencyIfMax() {
-        radio.setCurrentFrequency(9);
-        int expected = 9;
+        radio.setCurrentFrequency(19);
+        int expected = 19;
         int actual = radio.getCurrentFrequency();
         Assertions.assertEquals(expected, actual);
     }
@@ -64,8 +69,9 @@ public class RadioTest {
 
     @Test
     void shouldIncreaseFrequencyOnOnebyMax() {
-        radio.setCurrentFrequency(9);
+        radio.setCurrentFrequency(19);
         radio.next();
+
         int expected = 0;
         int actual = radio.getCurrentFrequency();
         Assertions.assertEquals(expected, actual);
@@ -75,6 +81,7 @@ public class RadioTest {
     void shouldIncreaseFrequencyOnOnebyMin() {
         radio.setCurrentFrequency(0);
         radio.next();
+
         int expected = 1;
         int actual = radio.getCurrentFrequency();
         Assertions.assertEquals(expected, actual);
@@ -111,16 +118,16 @@ public class RadioTest {
     void shouldReduceFrequencyOnOnebyMin() {
         radio.setCurrentFrequency(0);
         radio.prev();
-        int expected = 9;
+        int expected = 19;
         int actual = radio.getCurrentFrequency();
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     void shouldReduceFrequencyOnOnebyMax() {
-        radio.setCurrentFrequency(9);
+        radio.setCurrentFrequency(19);
         radio.prev();
-        int expected = 8;
+        int expected = 18;
         int actual = radio.getCurrentFrequency();
         Assertions.assertEquals(expected, actual);
     }
